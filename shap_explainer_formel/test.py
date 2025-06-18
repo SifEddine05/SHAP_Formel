@@ -85,4 +85,4 @@ isi_interpretation = [{
 }]
 
 
-SHAP_Formel(model, instance, data, cibleName="Cluster",medicalMetrics=isi_interpretation,categoriel_columns=['IMC'])
+SHAP_Formel(model, instance, data, target_column="Cluster",medical_metrics=isi_interpretation,categorical_columns=['IMC'])

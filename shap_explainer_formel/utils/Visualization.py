@@ -1,9 +1,17 @@
-
-
-from matplotlib import pyplot as plt
-
-
 def show_SHAP_plot(shap, shap_values, explainer, instance, model):
+    """
+    Display a SHAP waterfall plot explaining the prediction for a given instance.
+
+    Args:
+        shap (module): SHAP module, used to generate plots.
+        shap_values (np.ndarray): SHAP values for the instance.
+        explainer (shap.Explainer): SHAP explainer object with expected values.
+        instance (pd.DataFrame): Single-row dataframe representing the instance to explain.
+        model (object): Trained model used to predict the instance's class.
+
+    Returns:
+        None: This function prints output and displays a plot directly.
+    """
     # Predict the class for the instance (get the first prediction)
     predicted_class = model.predict(instance.values)[0]
 
@@ -13,7 +21,6 @@ def show_SHAP_plot(shap, shap_values, explainer, instance, model):
     print(f"➡️  Predicted class: {predicted_class}")
     print("\n📊 SHAP values contribution analysis:\n")
 
-
     # Display the SHAP waterfall plot
     shap.plots.waterfall(
         shap.Explanation(
@@ -21,24 +28,24 @@ def show_SHAP_plot(shap, shap_values, explainer, instance, model):
             base_values=explainer.expected_value[int(predicted_class)],
             data=instance.values[0],
             feature_names=instance.columns.tolist()  # optional but good practice
-
         ),
         max_display=10  # Show top 10 important features
     )
-   
-
     print("-"*70 + "\n")
 
 
 def show_formel_explanations(formel_dic):
+    """
+    Print a summary of formal explanations for the features of an instance.
+
+    Args:
+        formel_dic (dict): Dictionary mapping feature names to formal explanations.
+
+    Returns:
+        None: This function prints output directly.
+    """
     print("\n📝 Formal explanations summary:")
     print("-" * 70)
     for feature_name, explanation in formel_dic.items():
         print(f"• {feature_name}: {explanation}")
     print("-" * 70 + "\n")
-
-
-
-
-
-
