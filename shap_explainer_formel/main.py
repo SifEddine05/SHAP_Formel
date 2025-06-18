@@ -2,10 +2,8 @@ from shap_explainer_formel.utils.Affichage import show_SHAP_plot, show_formel_ex
 from shap_explainer_formel.utils.explanations import formel_explanation, get_optimal_formel, shap_explanation
 from shap_explainer_formel.utils.interpretation import interprete_results
 from shap_explainer_formel.utils.validation import validate_input
-from shap_explainer_formel.utils import importation, methodComine, SHAP_fausse_values, showExplainations, ShowInterpretation
 import shap
 
-from pyxai import Tools, Learning, Explainer
 
 
 def SHAP_Formel(model, instance, data, cibleName,categoriel_columns=None,medicalMetrics=None):
