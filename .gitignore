@@ -1,1 +1,53 @@
 myenv
+
+# Environnement virtuel
+venv/
+env/
+ENV/
+.venv/
+
+# Fichiers Python compilés
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Fichiers de logs
+*.log
+
+# Fichiers temporaires
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# Dossiers Jupyter
+.ipynb_checkpoints
+
+# Fichiers de configuration IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Fichiers spécifiques à OS
+.DS_Store
+Thumbs.db
+
+# Résultats des tests, coverage, etc.
+htmlcov/
+.coverage
+*.cover
+.coverage.*
+.cache
+nosetests.xml
+pytest_cache/
+
+# Fichiers de build
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Autres
+*.bak
+*.old
