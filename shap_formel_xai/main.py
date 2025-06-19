@@ -1,7 +1,7 @@
-from shap_explainer_formel.utils.Visualization import show_SHAP_plot, show_formel_explanations
-from shap_explainer_formel.utils.Explanation import formel_explanation, get_optimal_formel, shap_explanation
-from shap_explainer_formel.utils.Interpretation import interprete_results
-from shap_explainer_formel.utils.Validation import validate_input
+from shap_formel_xai.utils.Visualization import show_SHAP_plot, show_formel_explanations
+from shap_formel_xai.utils.Explanation import formel_explanation, get_optimal_formel, shap_explanation
+from shap_formel_xai.utils.Interpretation import interprete_results
+from shap_formel_xai.utils.Validation import validate_input
 import shap
 
 def SHAP_Formel(model, instance, data, target_column, categorical_columns=None, medical_metrics=None):
