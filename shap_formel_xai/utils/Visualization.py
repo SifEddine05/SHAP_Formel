@@ -1,3 +1,7 @@
+from sklearn.base import is_classifier
+from xgboost import XGBClassifier
+
+
 def show_SHAP_plot(shap, shap_values, explainer, instance, model):
     """
     Display a SHAP waterfall plot explaining the prediction for a given instance.
@@ -21,11 +25,15 @@ def show_SHAP_plot(shap, shap_values, explainer, instance, model):
     print(f"➡️  Predicted class: {predicted_class}")
     print("\n📊 SHAP values contribution analysis:\n")
 
+    if is_classifier(model) or isinstance(model, XGBClassifier):
+        expected_value = explainer.expected_value[int(predicted_class)]
+    else : 
+        expected_value = explainer.expected_value
     # Display the SHAP waterfall plot
     shap.plots.waterfall(
         shap.Explanation(
             values=shap_values,
-            base_values=explainer.expected_value[int(predicted_class)],
+            base_values=expected_value,
             data=instance.values[0],
             feature_names=instance.columns.tolist()  # optional but good practice
         ),
@@ -46,6 +54,8 @@ def show_formel_explanations(formel_dic):
     """
     print("\n📝 Formal explanations summary:")
     print("-" * 70)
+    if len(formel_dic.items()) == 0:
+        print("No formel explanation available for this type of model")
     for feature_name, explanation in formel_dic.items():
         print(f"• {feature_name}: {explanation}")
     print("-" * 70 + "\n")

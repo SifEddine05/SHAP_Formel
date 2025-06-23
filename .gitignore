@@ -51,3 +51,7 @@ dist/
 # Autres
 *.bak
 *.old
+test.py
+setup.py
+data.csv
+

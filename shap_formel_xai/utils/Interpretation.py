@@ -78,7 +78,7 @@ def interprete_categoriel(categoriel, instance, top_10_features, data):
             print(f"{feature_info} = {val} 🧠 ({percent:.2f}% of individuals)")
 
 
-def interprete_results(top_10_features, categoriel, medical, cibleName, data, instance):
+def interprete_results(formel_dic, categoriel, medical, cibleName, data, instance):
     """
     Aggregate and print interpretations for medical, numeric, and categorical features.
 
@@ -96,9 +96,11 @@ def interprete_results(top_10_features, categoriel, medical, cibleName, data, in
     print("\n📝 Interpretation of Explanations :")
     print("-" * 70)
     X = data.drop(columns=[cibleName])
+    top_features = list(formel_dic.keys())
+
     medical_cols = [m["column_name"] for m in medical] if medical else []
     numeric = [col for col in X.columns if col not in categoriel + medical_cols]
-    interprete_medical(medical, instance, top_10_features)
-    interprete_numeric(numeric, instance, top_10_features, data)
-    interprete_categoriel(categoriel, instance, top_10_features, data)
+    interprete_medical(medical, instance, top_features)
+    interprete_numeric(numeric, instance, top_features, data)
+    interprete_categoriel(categoriel, instance, top_features, data)
     print("-" * 70 + "\n")
