@@ -1,7 +1,19 @@
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
+from xgboost import XGBRegressor, XGBClassifier
+from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
+
 from sklearn.exceptions import NotFittedError
 from sklearn.utils.validation import check_is_fitted
 import pandas as pd
+
+SUPPORTED_MODELS = (
+    RandomForestClassifier,
+    RandomForestRegressor,
+    XGBRegressor,
+    XGBClassifier,
+    DecisionTreeClassifier,
+    DecisionTreeRegressor
+)
 
 
 def verify_model(model):
@@ -14,7 +26,7 @@ def verify_model(model):
     Returns:
         (bool, str): Tuple where bool indicates validity, str contains error message if invalid.
     """
-    if isinstance(model, RandomForestClassifier):
+    if isinstance(model, SUPPORTED_MODELS) :
         try:
             # Check if the model has been fitted/trained
             check_is_fitted(model)

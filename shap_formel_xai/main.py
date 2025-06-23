@@ -62,4 +62,4 @@ def SHAP_Formel(model, instance, data, target_column, categorical_columns=None, 
     show_formel_explanations(optimal_formel)
 
     # Interpret the results based on top features, categorical columns, and medical metrics
-    interprete_results(top_10_features, categorical_columns, medical_metrics, target_column, data, instance)
+    interprete_results(optimal_formel, categorical_columns, medical_metrics, target_column, data, instance)
