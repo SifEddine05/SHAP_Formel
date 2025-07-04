@@ -2,7 +2,7 @@
 
 ## Overview
 
-The `shap_formel_xai` package is designed to provide comprehensive explainability for machine learning models, combining SHAP (SHapley Additive exPlanations) values with formal, rule-based explanations. This package is particularly suited for interpretable AI applications, such as medical diagnostics, where both feature importance and human-readable rules are crucial.
+The `shap_formel_xai` package is designed to provide comprehensive explainability for machine learning models, combining SHAP (SHapley Additive exPlanations) values with formal, rule-based explanations. This package is particularly suited for interpretable AI applications, such as medical diagnostics, where both feature importance and human-readable rules are crucial .
 
 ---
 
